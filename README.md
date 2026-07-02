@@ -94,212 +94,145 @@ The analysis showed that operational inefficiencies, rather than increasing pati
 
 ## 4. Repository Structure
 
-```
-[project-root]/
+Hospital-Operations-Performance-Analysis/
+
 │
+
+├── README.md
+
+│
+
 ├── data/
-│   ├── raw/                  # Original, unmodified source data - never edited
-│   ├── processed/            # Cleaned and transformed data
-│   └── external/             # Reference data, lookup tables, third-party files
-│
-├── notebooks/                # Jupyter, R Markdown, or Colab notebooks
-│
-├── scripts/                  # Reusable .py, .R, or .sh processing files
-│
-├── queries/                  # SQL files (retain this folder for SQL-heavy projects)
-│   ├── exploratory/          # Ad-hoc or investigative queries
-│   ├── transformations/      # Cleaning and reshaping logic
-│   └── final/                # Production-ready or presentation queries
-│
-├── reports/                  # Final outputs: PDFs, slide decks, Word docs
-│
-├── visuals/                  # Exported charts, dashboard screenshots, ERD diagrams
-│
-├── docs/                     # Data dictionaries, schema notes, reference material
-│
-├── project_metadata.yml      # Machine-readable metadata (optional)
-└── README.md                 # You are here
-```
 
-> ⚠️ *Delete folders you didn't use. An empty folder is worse than no folder.*
-> SQL-heavy projects: keep `queries/`. Analysis-only projects: keep `notebooks/`. Both? Keep both.
+│   ├── raw/
 
----
+│   └── processed/
+
+│
+
+├── queries/
+
+│   └── hospital_operations_analysis.sql
+
+│
+
+├── dashboards/
+
+│   └── Hospital_Operations_Dashboard.twb
+
+│
+
+├── reports/
+
+│   └── Executive_Report.pdf
+
+│
+
+├── visuals/
+
+│   ├── hospital_erd.png
+
+│   ├── dashboard_01_overview.png
+
+│   ├── dashboard_02_operational.png
+
+│   ├── dashboard_03_departmental.png
+
+│   ├── dashboard_04_clinical.png
+
+│   └── dashboard_05_financial.png               
 
 ## 5. Data Workflow
 
-<!--
-  Show how data moved through your project - from source to output.
-  Every transformation decision should be traceable here.
+### 🔄 Data Workflow
 
-  WHAT GOOD LOOKS LIKE:
-  1. Source: "Monthly CSV exports pulled from the internal POS system.
-              Five files, one per region, covering Jan 2023–Jun 2024."
-  2. Ingestion: "Loaded into Python using pandas. Files concatenated into
-                 a single dataframe (approx. 340,000 rows)."
-  3. Cleaning: "Removed 1.2% of rows with null transaction IDs.
-                Standardised date formats across regional files.
-                Resolved product category naming inconsistencies (3 variants → 1)."
-  4. Transformation: "Created a returns_rate field at product-category level.
-                      Aggregated to weekly and regional grain for trend analysis."
-  5. Analysis: "Descriptive statistics, regional comparison, return rate
-                segmentation by product category."
-  6. Output: "Summary report (PDF), annotated notebook, processed CSV."
+```text
 
-  WHAT TO AVOID:
-  ❌ "Data was cleaned and analysed." (No chain. No decisions. No trust.)
--->
+Five Relational Hospital Datasets
 
+(Fact Encounter, Fact Patient, Fact Procedure, Fact Financial Summary, Fact Payer)
+
+       ↓
+Microsoft Excel (Power Query)
+
+Data quality checks, character encoding cleanup, and data standardization
+
+       ↓
+PostgreSQL
+
+Relational joins using Encounter ID, Patient ID, and Payer ID
+
+       ↓
+SQL Analysis
+
+Calculated operational and financial KPIs, performed trend, ranking, 
+
+segmentation, and root cause analysis, and created reusable SQL views
+
+       ↓
+Tableau
+
+Connected SQL views, created calculated fields, built KPI cards, 
+
+and developed interactive dashboards
+
+       ↓
+Deliverables
+
+Executive dashboard, analytical report, and business recommendations
 ```
-[Data Source(s)]
-      ↓
-[Ingestion / Collection Method]
-      ↓
-[Cleaning & Transformation]
-      ↓
-[Analysis / Modelling / Querying]
-      ↓
-[Output / Visualisation / Reporting]
-```
 
-1. **Source:** [Where did the data come from? Format, size, access method.]
-2. **Ingestion:** [How was it brought in?]
-3. **Cleaning:** [What issues did you find and fix?]
-4. **Transformation:** [What new fields, aggregations, or structures did you create?]
-5. **Analysis:** [What methods - statistical, visual, query-based, model-based?]
-6. **Output:** [What form do the results take?]
+1. **Source:** Five relational hospital datasets in CSV format generated using Synthea, representing inpatient encounters, patient demographics, procedures, payer information, and financial data for the period January 2023 to December 2024.
+   
+3. **Ingestion:** Imported the CSV files into Microsoft Excel (Power Query) for initial preprocessing before loading the cleaned datasets into PostgreSQL for relational analysis.
+   
+4. **Cleaning:** Resolved character encoding issues, removed leading and trailing spaces, and standardized the datasets to improve data quality and ensure consistency before analysis.
+   
+5. **Transformation:** Integrated the five datasets in PostgreSQL using Encounter ID, Patient ID, and Payer ID. Created reusable SQL views and derived fields to support KPI calculations, while preparing the underlying data required for metrics such as Average Length of Stay (ALOS) and Readmission Rate. Final calculated fields were implemented in Tableau for dashboard reporting.
+   
+6. **Analysis:** Used SQL to calculate operational and financial KPIs and perform trend analysis, departmental comparisons, ranking, segmentation, and root cause analysis. Connected the SQL views to Tableau to develop interactive dashboards and KPI visualizations.
+
+7. **Output:** Produced an interactive Tableau dashboard, an executive analytical report, and business recommendations to support operational, clinical, and financial decision-making.
 
 ---
 
 ## 6. Data Model & Schema
 
-<!--
-  Define your fields so that someone reading your analysis can follow along
-  without digging through your code.
-
-  WHAT GOOD LOOKS LIKE (one row example):
-  | transaction_id | string | Unique identifier per sales transaction | TXN-00482 |
-  | return_flag    | boolean | Whether the transaction included a return | TRUE |
-  | region_code    | string | Two-letter identifier for store region | "NE" |
-
-  WHAT TO AVOID:
-  ❌ Skipping this section because "the field names are self-explanatory."
-     They're not. Not to a reviewer. Not to you in six months.
-
-  📌 FOR SQL PROJECTS: If you have multiple tables, create one block per table.
-     Describe join keys and relationships here. Your ERD (Section 7) will
-     visualise what this section describes in text.
-
-  📌 FOR NON-SQL PROJECTS: Describe the shape of your dataset informally
-     if a formal schema doesn't apply. Even one paragraph is more helpful than nothing.
--->
-
 ### Dataset / Table: `[name]`
 
 | Field Name | Data Type | Description | Example Value |
-|------------|-----------|-------------|---------------|
-| `[field_1]` | [string / int / date / float / boolean] | [What this field represents] | [Non-sensitive example] |
-| `[field_2]` | [string / int / date / float / boolean] | [What this field represents] | [Non-sensitive example] |
-| `[field_3]` | [string / int / date / float / boolean] | [What this field represents] | [Non-sensitive example] |
 
-> **Row count (approx.):** [X rows]
-> **Date range:** [Start] – [End]
-> **Key join / relationship:** [e.g., `orders.customer_id` → `customers.id`]
+| Encounter ID | String | Unique identifier for each hospital encounter. | ENC-102345 |
 
-*Add additional table blocks as needed for multi-table projects.*
+| Patient ID | String | Identifies the patient associated with the encounter. | PAT-004521 |
 
----
+| Payer ID | String | Identifies the payer responsible for the encounter. | PAY-012 |
+
+| Start Date | Date | Admission date of the encounter. | 2023-01-15 |
+
+| Stop Date | Date | Discharge date of the encounter. | 2023-01-20 |
+
+| Encounter Class | String | Type of hospital encounter. | Inpatient |
+
+| Diagnosis Code | String | Standardized clinical code assigned to the primary diagnosis. | 72892002 |
+
+| Diagnosis | String | Primary diagnosis associated with the encounter. | Normal pregnancy |
+
+> **Row count (approx.):** 936,000+ rows
+
+> **Date range:** January 2023 – December 2024
+
+> **Key join / relationship:** patient_id → Fact Patient.patient_id, payer_id → Fact Payer.payer_id, encounter_id → Fact Procedure.encounter_id, encounter_id → Fact Financial Summary.encounter_id
+
+> **Note:** The project uses five relational tables. The schema above presents a representative sample from the central **Fact Encounter** table. The complete table relationships are illustrated in the **Entity Relationship Diagram (ERD)** in the next section.
 
 ## 7. ERD - Entity Relationship Diagram
-### *(Primarily for SQL Projects - remove this section if not applicable)*
 
-<!--
-  An ERD shows how your tables connect to each other visually.
-  It is the fastest way for a reviewer to understand the data structure
-  of a SQL project without reading every query.
+The Entity Relationship Diagram (ERD) illustrates the relational structure of the hospital database used in this project. The **Fact Encounter** table serves as the central fact table and is linked to the **Fact Patient**, **Fact Procedure**, **Fact Financial Summary**, and **Fact Payer** tables through shared keys.
 
-  HOW TO INCLUDE YOUR ERD:
-  Option A - Image embed (most common):
-    Export your ERD from dbdiagram.io, DBeaver, Lucidchart, or similar.
-    Save to /visuals/erd.png and reference it below.
+![Hospital ERD](visuals/hospital_erd.png)
 
-  Option B - dbdiagram.io code block (version-controllable):
-    Paste your schema definition code directly in the fenced block below.
-    Anyone can paste it into dbdiagram.io to regenerate the visual.
-
-  Option C - Mermaid diagram (renders natively in GitHub):
-    Use the mermaid code block syntax below.
-    GitHub will render this as a diagram automatically.
-
-  PICK ONE. Don't use all three. Delete the options you don't use.
--->
-
-### Option A - Embedded Image
-![ERD Diagram](visuals/erd.png)
-*[Brief caption: e.g., "Three-table schema - orders, customers, and products joined on shared IDs."]*
-
----
-
-### Option B - dbdiagram.io Schema Definition
-```
-Table orders {
-  order_id    int     [pk]
-  customer_id int     [ref: > customers.customer_id]
-  product_id  int     [ref: > products.product_id]
-  order_date  date
-  amount      float
-}
-
-Table customers {
-  customer_id int  [pk]
-  region_code string
-  signup_date date
-}
-
-Table products {
-  product_id   int    [pk]
-  category     string
-  unit_price   float
-}
-```
-*Paste this into [dbdiagram.io](https://dbdiagram.io) to view the visual.*
-
----
-
-### Option C - Mermaid Diagram *(renders on GitHub)*
-```mermaid
-erDiagram
-    ORDERS {
-        int order_id PK
-        int customer_id FK
-        int product_id FK
-        date order_date
-        float amount
-    }
-    CUSTOMERS {
-        int customer_id PK
-        string region_code
-        date signup_date
-    }
-    PRODUCTS {
-        int product_id PK
-        string category
-        float unit_price
-    }
-    ORDERS ||--o{ CUSTOMERS : "placed by"
-    ORDERS ||--o{ PRODUCTS : "contains"
-```
-
----
-
-**Table Relationships Summary:**
-
-| Relationship | Join Key | Type |
-|-------------|----------|------|
-| `orders` → `customers` | `customer_id` | Many-to-One |
-| `orders` → `products` | `product_id` | Many-to-One |
-| [Add rows as needed] | | |
-
+*Figure 1. Entity Relationship Diagram showing the relational schema and key relationships across the five hospital datasets.*
 ---
 
 ## 8. Analysis & Metrics
