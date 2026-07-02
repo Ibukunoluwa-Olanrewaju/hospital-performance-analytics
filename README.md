@@ -237,43 +237,32 @@ The Entity Relationship Diagram (ERD) illustrates the relational structure of th
 
 ## 8. Analysis & Metrics
 
-<!--
-  Explain what you measured and how - before you share what you found.
-
-  WHAT GOOD LOOKS LIKE:
-  Metric: "Customer Return Rate"
-  Definition: "Number of transactions flagged as returns divided by total
-               transactions, calculated at product-category and regional grain."
-  Why It Matters: "Return rate - not sales volume - was hypothesised to
-                  explain regional revenue gaps. This metric tests that hypothesis."
-
-  WHAT TO AVOID:
-  ❌ Defining a metric only in code: SUM(returns) / COUNT(transaction_id)
-     That's an implementation. Write the plain-language definition here.
-     Both belong in your project - the definition in the README,
-     the implementation in the code.
--->
-
 ### Analytical Approach
 
-[Describe how you approached the analysis. Were you exploring patterns? Testing a hypothesis? Building and validating a pipeline? Be honest about your method - exploratory work is valid, just call it that.]
+This project followed a business intelligence and diagnostic analytics approach to investigate hospital-wide operational performance. Rather than testing a predefined statistical hypothesis, the analysis explored patterns across patient flow, inpatient capacity, readmissions, and financial performance to identify the underlying drivers of operational inefficiency.
+Data from five relational hospital datasets was integrated using SQL, where key operational and financial metrics were calculated. The results were analyzed using trend analysis, departmental ranking, segmentation, and root cause analysis before being presented through interactive Tableau dashboards to support executive decision-making.
+
 
 ### Key Metrics Defined
-
 | Metric | Plain-Language Definition | Why It Matters |
 |--------|--------------------------|----------------|
-| `[Metric 1]` | [What it measures, in one sentence] | [What decision or question it answers] |
-| `[Metric 2]` | [What it measures, in one sentence] | [What decision or question it answers] |
-| `[Metric 3]` | [What it measures, in one sentence] | [What decision or question it answers] |
+| Average Length of Stay (ALOS) | The average number of days patients remained admitted before discharge. | Measures hospital efficiency and helps identify departments experiencing prolonged inpatient stays. |
+| Readmission Rate | The percentage of patients who returned for inpatient care within the defined readmission period after discharge. | Indicates the quality of care transitions and highlights areas contributing to recurring hospital utilization. |
+| Total Bed-Day Burden | The total number of inpatient bed days consumed across all encounters. | Quantifies overall pressure on hospital capacity and resource utilization. |
+| Inpatient Volume | The total number of inpatient encounters during the analysis period. | Determines whether operational pressure is driven by patient demand or internal inefficiencies. |
+| Total Revenue | The total net revenue generated from inpatient encounters. | Evaluates financial performance alongside operational activity. |
+| Gross Billed Amount | The total charges billed before contractual adjustments or payments. | Provides context for comparing hospital billing activity with realized revenue. |
+| Patient Contribution Rate | The proportion of encounters attributed to each department or diagnosis group. | Identifies which service lines contribute most to hospital workload and capacity demand. |
 
 ### Methods Used
 
-- [e.g., Descriptive statistics - distribution, central tendency, outlier detection]
-- [e.g., Trend analysis across [time period]]
-- [e.g., Segmentation / group comparison by [dimension]]
-- [e.g., Correlation analysis between [variable A] and [variable B]]
-- [e.g., SQL window functions for [specific aggregation]]
-- [e.g., Custom aggregation or transformation logic in [tool]]
+- Time-series trend analysis to evaluate monthly patterns in inpatient volume, average length of stay (ALOS), and financial performance.
+- Departmental ranking and comparative analysis to identify high-burden specialties based on patient volume, bed-day utilization, readmissions, and revenue.
+- Segmentation analysis to compare operational and financial performance across departments and diagnosis groups.
+- Root cause analysis to investigate the operational drivers of prolonged hospital stays, readmissions, and capacity constraints.
+- Relational SQL joins to integrate five hospital datasets using Encounter ID, Patient ID, and Payer ID.
+- SQL aggregation, grouping, and reusable views to calculate operational and financial KPIs.
+- Tableau calculated fields and interactive dashboards to visualize performance metrics and support executive decision-making.
 
 ---
 
