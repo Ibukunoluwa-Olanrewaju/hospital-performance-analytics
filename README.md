@@ -268,26 +268,13 @@ Data from five relational hospital datasets was integrated using SQL, where key 
 
 ## 9. Key Insights
 
-<!--
-  Findings + implications. Not just what happened - what it means.
+ ![Operational Diagnostics Dashboard](visuals/dashboard_01_operational.png)
 
-  WHAT GOOD LOOKS LIKE:
-  ✅ "Return rates, not sales volume, explain Region A's underperformance.
-      Region A's return rate on home goods was 34% - more than double the
-      company average. Revenue was not lost at the point of sale; it was
-      lost post-sale through refunds. This points to a fulfilment or
-      product quality issue specific to that region, not a demand problem."
+### Insight 1: Prolonged Patient Stays, Not Rising Admissions, Drove Capacity Pressure
 
-  WHAT TO AVOID:
-  ❌ "Region A had lower revenue than other regions in Q4."
-     (That's an observation. It describes what happened.
-      An insight says what it means and where to look next.)
+Analysis of monthly inpatient encounters showed a relatively stable admission pattern throughout the 24-month period, with predictable seasonal peaks in January (94 encounters) and December (96 encounters). However, Average Length of Stay (ALOS) remained consistently elevated, frequently ranging between 5.1 and 5.6 days, even during lower-volume months.
 
-  Aim for 3–6 insights. Quality over quantity.
--->
-
-**Insight 1: [Short descriptive headline]**
-[What you found + what it suggests. One short paragraph.]
+These patterns indicate that the hospital’s capacity constraints were driven primarily by prolonged inpatient stays rather than increasing patient demand. As patients occupied beds for longer durations, bed availability declined, turnover slowed, and the hospital’s ability to accommodate new admissions became increasingly constrained.
 
 **Insight 2: [Short descriptive headline]**
 [What you found + what it suggests.]
