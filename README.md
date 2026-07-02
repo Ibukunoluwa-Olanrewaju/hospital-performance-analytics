@@ -230,7 +230,7 @@ Executive dashboard, analytical report, and business recommendations
 
 The Entity Relationship Diagram (ERD) illustrates the relational structure of the hospital database used in this project. The **Fact Encounter** table serves as the central fact table and is linked to the **Fact Patient**, **Fact Procedure**, **Fact Financial Summary**, and **Fact Payer** tables through shared keys.
 
-![Entity Relationship Diagram](visuals/erd.png)
+![Entity Relationship Diagram](visuals/hospital_erd.png)
 
 *Figure 1. Entity Relationship Diagram showing the relational schema and key relationships across the five hospital datasets.*
 ---
