@@ -22,7 +22,7 @@
 4. [Repository Structure](#4-repository-structure)
 5. [Data Workflow](#5-data-workflow)
 6. [Data Model & Schema](#6-data-model--schema)
-7. [ERD - Entity Relationship Diagram](#7-erd--entity-relationship-diagram) *(SQL projects)*
+7. [ERD - Entity Relationship Diagram](#7-erd--entity-relationship-diagram) 
 8. [Analysis & Metrics](#8-analysis--metrics)
 9. [Key Insights](#9-key-insights)
 10. [Recommendations](#10-recommendations)
@@ -276,77 +276,57 @@ Analysis of monthly inpatient encounters showed a relatively stable admission pa
 
 These patterns indicate that the hospital’s capacity constraints were driven primarily by prolonged inpatient stays rather than increasing patient demand. As patients occupied beds for longer durations, bed availability declined, turnover slowed, and the hospital’s ability to accommodate new admissions became increasingly constrained.
 
-**Insight 2: [Short descriptive headline]**
-[What you found + what it suggests.]
+![Departmental Analysis Dashboard](visuals/dashboard_02_departmental.png)
 
-**Insight 3: [Short descriptive headline]**
-[What you found + what it suggests.]
+### Insight 2: A Small Number of High-Burden Service Areas Accounted for a Disproportionate Share of Bed Capacity Pressure
 
-**Insight 4 (if applicable): [Short descriptive headline]**
-[What you found + what it suggests.]
+At the department level, **Internal Medicine** accounted for **85.5%** of all inpatient encounters, making it the hospital's busiest department. Within Internal Medicine, **Pulmonology** recorded the longest Average Length of Stay (ALOS) at **7.4 days**, while the **Psychiatry** department also reported a prolonged ALOS of **6.8 days**.
 
----
+Although Pulmonology and Psychiatry managed fewer patients than the broader Internal Medicine department, their extended inpatient stays consumed a disproportionate share of hospital bed capacity. These findings indicate that a relatively small number of high-burden service areas were responsible for a significant share of the hospital's capacity constraints.
+
+**Insight 3:**
+![Clinical Analytics Dashboard](visuals/dashboard_03_clinical.png)
+
+### Insight 3: Diagnosis-Level Analysis Revealed the Primary Drivers of Prolonged Stays and Readmissions
+
+To understand why **Pulmonology** and **Psychiatry** experienced prolonged inpatient stays, the analysis was further segmented by diagnosis. This revealed **Lung Cancer** as the primary high-burden diagnosis within Pulmonology and **Substance Use Disorder** as the leading contributor within Psychiatry.
+
+Patients admitted with Substance Use Disorder recorded some of the longest initial hospital stays, averaging **7.5 days**, while Lung Cancer patients averaged **6.9 days** and accounted for **32%** of all hospital readmissions. Further analysis showed that **33.7%** of Lung Cancer patients were readmitted following discharge, indicating that readmissions were concentrated within a specific high-risk patient group rather than being evenly distributed across the hospital population. 
+
+These recurring admissions placed sustained pressure on inpatient bed capacity and patient flow.
+
+**Insight 4:** 
+![Financial Analytics Dashboard](visuals/dashboard_04_financial.png)
+
+High Clinical Burden Reduced Financial Performance Despite Strong Patient Demand
+
+Financial analysis showed that monthly net revenue remained relatively stable, ranging between **$41M and $43M**, despite sustained inpatient demand and consistently high bed occupancy. This plateau indicates that the hospital's financial performance was constrained by inpatient capacity rather than a lack of patient activity.
+
+Among the high-burden service areas, **Psychiatry** stood out for consuming a substantial share of inpatient bed days while generating comparatively lower financial returns. More broadly, service areas with prolonged average lengths of stay tied up valuable bed capacity, limiting patient turnover and reducing opportunities to admit additional patients. 
+
+These findings demonstrate that high clinical burden not only placed pressure on hospital operations but also restricted the organization's ability to maximize revenue from existing resources.
 
 ## 10. Recommendations
 
-<!--
-  Action-oriented. Addressed to a real audience.
-  Tied explicitly to the insight that supports each one.
-
-  WHAT GOOD LOOKS LIKE:
-  Priority: High
-  Recommendation: "Conduct a fulfilment audit for home goods deliveries
-                   in Region A - specifically investigating whether returns
-                   correlate with a particular warehouse, carrier, or SKU batch."
-  Based On: Insight 1 - return rate anomaly in Region A
-  Owner: Operations / Supply Chain team
-
-  WHAT TO AVOID:
-  ❌ "Improve the return rate."
-     (Not actionable. Doesn't say who, how, or where to start.)
-  ❌ "Further analysis is needed."
-     (This is a placeholder, not a recommendation.)
--->
-
 | Priority | Recommendation | Based On | Suggested Owner |
 |----------|---------------|----------|-----------------|
-| High | [Specific, actionable step] | [Insight it comes from] | [Who should act] |
-| Medium | [Specific, actionable step] | [Insight it comes from] | [Who should act] |
-| Low | [Exploratory or longer-term suggestion] | [Insight it comes from] | [Who should act] |
-
+| High | Review inpatient care pathways to identify operational factors contributing to prolonged hospital stays and reduced bed turnover, such as discharge coordination delays and patient acuity-related care transitions, before implementing targeted capacity interventions. | Insight 1: Prolonged patient stays, not rising admissions, drove capacity pressure. | Hospital Operations Leadership |
+| High | Increase nursing, care coordination, and operational staffing support within Pulmonology and Psychiatry to improve care delivery, coordinate timely workflows, and reduce extended inpatient stays. | Insight 2: A small number of high-burden service areas accounted for a disproportionate share of bed capacity pressure. | Departmental Leadership |
+| High | Implement structured post-discharge follow-up programs for high-risk Lung Cancer patients and review transition pathways for long-stay Psychiatry patients to reduce avoidable readmissions. | Insight 3: Diagnosis-level analysis identified the primary drivers of prolonged stays and readmissions. | Clinical Leadership |
+| Medium | Conduct discharge readiness and inpatient care pathway audits to distinguish delays caused by clinical complexity from administrative or operational bottlenecks. | Insights 2 & 3: Prolonged stays varied across service areas and diagnoses. | Quality Improvement Team |
+| Medium | Align budget allocation with actual bed-day utilization and quantify the financial impact of prolonged stays and readmissions to support evidence-based resource planning. | Insight 4: High clinical burden limited financial performance despite sustained patient demand. | Finance Leadership |
 ---
-
-## 11. Assumptions & Limitations
-
-<!--
-  WHAT GOOD LOOKS LIKE:
-  Assumption: "Transaction records were assumed to be complete for all five regions.
-               No validation was performed against source system record counts."
-  Limitation: "The analysis cannot distinguish between returns initiated by
-               the customer vs. returns initiated by the business (e.g., recalls).
-               If business-initiated returns are concentrated in Region A, the
-               return rate finding may reflect a policy decision, not a quality issue."
-
-  WHAT TO AVOID:
-  ❌ Leaving this section blank or writing "None known."
-     Every project has limitations. Documenting them is a sign of
-     analytical maturity - not a confession of failure.
--->
-
-### Assumptions
-- [What did you treat as true without being able to verify?]
-- [What simplifications did you make for scope or feasibility?]
-- [What domain rules or definitions did you accept as given?]
 
 ### Limitations
-- [What gaps exist in the data?]
-- [What analysis was out of scope but could affect interpretation?]
-- [What would a more rigorous version of this project include?]
-- [Are there known biases in the data source or collection method?]
 
-> *The goal here is pre-emptive Q&A. What would a thoughtful skeptic push back on? Document the answer here, before they ask.*
+- **Absence of Direct Cost and Margin Metrics:**  
+  The dataset includes **Gross Billed Amount** and **Net Revenue** but does not contain internal operating costs or margin data. As a result, the analysis could not quantify the true financial impact or profit loss associated with prolonged hospital stays.
 
----
+- **Lack of Clinical Severity and Acuity Data:**  
+  The dataset does not include patient acuity scores or clinical severity measures. Consequently, the analysis cannot determine whether prolonged hospital stays were driven by operational inefficiencies or by medically necessary clinical stabilization.
+
+- **No Post-Discharge Patient Tracking:**  
+  Outpatient follow-up, medication adherence, and community-based care were not captured in the dataset. Therefore, the underlying causes of the **33.7% Lung Cancer readmission rate** could not be definitively linked to post-discharge care gaps or other external factors.
 
 ## 12. Future Enhancements
 
@@ -374,12 +354,13 @@ These patterns indicate that the hospital’s capacity constraints were driven p
 
 | Deliverable | Description | Location |
 |-------------|-------------|----------|
-| [Name] | [What it contains] | [`/path/to/file`] |
-| [Name] | [What it contains] | [`/path/to/file`] |
-| [Name] | [What it contains] | [`/path/to/file`] |
-
----
-
+| Raw Dataset | Original hospital encounter datasets used for the analysis. | `data/raw/` |
+| Processed Dataset | Cleaned datasets prepared for SQL analysis and dashboard development. | `data/processed/` |
+| SQL Analysis Script | SQL queries, views, KPI calculations, and analytical logic used throughout the project. | `queries/hospital_operations_analysis.sql` |
+| Tableau Dashboard | Interactive Tableau workbook containing all project dashboards and calculated fields. | `dashboards/Hospital_Operations_Dashboard.twb` |
+| Executive Report | Presentation summarizing the analytical approach, key findings, insights, and recommendations. | `reports/Executive_Report.pdf` |
+| ERD Diagram | Entity Relationship Diagram illustrating the database schema and table relationships. | `visuals/hospital_erd.png` |
+| Dashboard Screenshots | Dashboard images referenced throughout the README. | `visuals/` |
 ## 14. Author
 
 **[Your Name]**
