@@ -28,7 +28,7 @@
 10. [Recommendations](#10-recommendations)
 11. [Limitations](#11-limitations)
 12. [Deliverables](#12-deliverables)
-13. [Author](#14-author)
+13. [Author](#13-author)
 
 ---
 
@@ -338,16 +338,15 @@ These findings demonstrate that high clinical burden not only placed pressure on
 | Executive Report | Executive presentation summarizing the analytical approach, key findings, insights, and recommendations. | [`reports/`](reports/) |
 | Visual Assets | Entity Relationship Diagram (ERD) and dashboard screenshots referenced throughout the README. | [`visuals/`](visuals/) |
 
-## 14. Author
+## 13. Author
 
-**[Your Name]**
-[Your role or title - current or target]
+## About the Author
 
-- 🔗 [LinkedIn URL]
-- 💼 [Portfolio or GitHub profile URL]
-- 📧 [Email - optional]
+**Ibukunoluwa Olanrewaju**  
+Healthcare Data Analyst
 
----
+- 🔗 LinkedIn: [Ibukunoluwa Olanrewaju](https://www.linkedin.com/in/ibukunoluwa-olanrewaju)
+- 📧 Email: ibukunolanrewaju01@gmail.com
 
-*Last updated: [Month YYYY]*
+
 
