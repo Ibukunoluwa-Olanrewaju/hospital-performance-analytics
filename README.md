@@ -316,7 +316,7 @@ These findings demonstrate that high clinical burden not only placed pressure on
 | Medium | Align budget allocation with actual bed-day utilization and quantify the financial impact of prolonged stays and readmissions to support evidence-based resource planning. | Insight 4: High clinical burden limited financial performance despite sustained patient demand. | Finance Leadership |
 ---
 
-[Limitations](#limitations)
+
 ### Limitations
 
 - **Absence of Direct Cost and Margin Metrics:**  
