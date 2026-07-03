@@ -317,7 +317,7 @@ These findings demonstrate that high clinical burden not only placed pressure on
 ---
 
 
-### Limitations
+### 11. Limitations
 
 - **Absence of Direct Cost and Margin Metrics:**  
   The dataset includes **Gross Billed Amount** and **Net Revenue** but does not contain internal operating costs or margin data. As a result, the analysis could not quantify the true financial impact or profit loss associated with prolonged hospital stays.
@@ -328,37 +328,16 @@ These findings demonstrate that high clinical burden not only placed pressure on
 - **No Post-Discharge Patient Tracking:**  
   Outpatient follow-up, medication adherence, and community-based care were not captured in the dataset. Therefore, the underlying causes of the **33.7% Lung Cancer readmission rate** could not be definitively linked to post-discharge care gaps or other external factors.
 
-## 12. Future Enhancements
 
-<!--
-  WHAT GOOD LOOKS LIKE:
-  ✅ "Automate the monthly data pull from the POS export folder using
-      a scheduled Python script, replacing the current manual process."
-  ✅ "Expand the return rate analysis to include carrier-level data,
-      which was unavailable in this dataset but exists in the logistics system."
-
-  WHAT TO AVOID:
-  ❌ "Add a machine learning model."
-     (Vague, and disconnected from the actual findings of this project.)
-  ❌ Listing aspirational features that don't follow logically from the work.
--->
-
-- [ ] [Enhancement 1 - specific and traceable to a real gap in this project]
-- [ ] [Enhancement 2]
-- [ ] [Enhancement 3]
-- [ ] [Enhancement 4]
-
----
-
-## 13. Deliverables
+## 12. Deliverables
 
 | Deliverable | Description | Location |
 |-------------|-------------|----------|
-| Hospital Dataset | Raw and processed datasets used for SQL analysis and dashboard development. | [Google Drive Folder](https://your-google-drive-link) |
+| Hospital Dataset | Raw and processed datasets used for SQL analysis and dashboard development. Download links are provided in the `data` folder. | [`data/`](data/) |
 | SQL Queries | SQL scripts used for data exploration, transformation, KPI calculations, and reusable views. | [`queries/`](queries/) |
-| Tableau Dashboard | Interactive Tableau workbook containing operational, clinical, and financial dashboards. | [`dashboard/`](dashboard/) |
+| Tableau Dashboard | Interactive Tableau workbook containing the operational, clinical, and financial dashboards. | [`dashboard/`](dashboard/) |
 | Executive Report | Executive presentation summarizing the analytical approach, key findings, insights, and recommendations. | [`reports/`](reports/) |
-| Visual Assets | ERD diagram and dashboard screenshots referenced throughout the README. | [`visuals/`](visuals/) |
+| Visual Assets | Entity Relationship Diagram (ERD) and dashboard screenshots referenced throughout the README. | [`visuals/`](visuals/) |
 
 ## 14. Author
 
@@ -372,4 +351,4 @@ These findings demonstrate that high clinical burden not only placed pressure on
 ---
 
 *Last updated: [Month YYYY]*
-*If this template helped you, consider starring the repository.*
+
