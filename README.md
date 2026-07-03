@@ -354,13 +354,12 @@ These findings demonstrate that high clinical burden not only placed pressure on
 
 | Deliverable | Description | Location |
 |-------------|-------------|----------|
-| Raw Dataset | Original hospital encounter datasets used for the analysis. | `data/raw/` |
-| Processed Dataset | Cleaned datasets prepared for SQL analysis and dashboard development. | `data/processed/` |
-| SQL Analysis Script | SQL queries, views, KPI calculations, and analytical logic used throughout the project. | `queries/hospital_operations_analysis.sql` |
-| Tableau Dashboard | Interactive Tableau workbook containing all project dashboards and calculated fields. | `dashboards/Hospital_Operations_Dashboard.twb` |
-| Executive Report | Presentation summarizing the analytical approach, key findings, insights, and recommendations. | `reports/Executive_Report.pdf` |
-| ERD Diagram | Entity Relationship Diagram illustrating the database schema and table relationships. | `visuals/hospital_erd.png` |
-| Dashboard Screenshots | Dashboard images referenced throughout the README. | `visuals/` |
+| Hospital Dataset | Raw and processed datasets used for SQL analysis and dashboard development. | [Google Drive Folder](https://your-google-drive-link) |
+| SQL Queries | SQL scripts used for data exploration, transformation, KPI calculations, and reusable views. | [`queries/`](queries/) |
+| Tableau Dashboard | Interactive Tableau workbook containing operational, clinical, and financial dashboards. | [`dashboard/`](dashboard/) |
+| Executive Report | Executive presentation summarizing the analytical approach, key findings, insights, and recommendations. | [`reports/`](reports/) |
+| Visual Assets | ERD diagram and dashboard screenshots referenced throughout the README. | [`visuals/`](visuals/) |
+
 ## 14. Author
 
 **[Your Name]**
