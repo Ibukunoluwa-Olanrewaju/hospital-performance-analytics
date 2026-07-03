@@ -27,7 +27,7 @@
 9. [Key Insights](#9-key-insights)
 10. [Recommendations](#10-recommendations)
 11. [Limitations](#limitations)
-12. [Deliverables](#13-deliverables)
+12. [Deliverables](#12-deliverables)
 13. [Author](#14-author)
 
 ---
@@ -317,7 +317,7 @@ These findings demonstrate that high clinical burden not only placed pressure on
 ---
 
 
-### 11. Limitations
+### Limitations
 
 - **Absence of Direct Cost and Margin Metrics:**  
   The dataset includes **Gross Billed Amount** and **Net Revenue** but does not contain internal operating costs or margin data. As a result, the analysis could not quantify the true financial impact or profit loss associated with prolonged hospital stays.
