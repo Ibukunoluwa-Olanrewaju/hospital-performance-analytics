@@ -26,10 +26,9 @@
 8. [Analysis & Metrics](#8-analysis--metrics)
 9. [Key Insights](#9-key-insights)
 10. [Recommendations](#10-recommendations)
-11. [Assumptions & Limitations](#11-assumptions--limitations)
-12. [Future Enhancements](#12-future-enhancements)
-13. [Deliverables](#13-deliverables)
-14. [Author](#14-author)
+11. [Limitations](#11 limitations)
+12. [Deliverables](#13-deliverables)
+13. [Author](#14-author)
 
 ---
 
