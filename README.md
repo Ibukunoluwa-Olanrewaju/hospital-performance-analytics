@@ -238,7 +238,7 @@ The Entity Relationship Diagram (ERD) illustrates the relational structure of th
 
 ### Analytical Approach
 
-This project followed a business intelligence and diagnostic analytics approach to investigate hospital-wide operational performance. Rather than testing a predefined statistical hypothesis, the analysis explored patterns across patient flow, inpatient capacity, readmissions, and financial performance to identify the underlying drivers of operational inefficiency.
+This project followed a business intelligence and diagnostic analytics approach to investigate hospital-wide operational performance.The analysis explored patterns across patient flow, inpatient capacity, readmissions, and financial performance to identify the underlying drivers of operational inefficiency.
 Data from five relational hospital datasets was integrated using SQL, where key operational and financial metrics were calculated. The results were analyzed using trend analysis, departmental ranking, segmentation, and root cause analysis before being presented through interactive Tableau dashboards to support executive decision-making.
 
 
